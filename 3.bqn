@@ -6,4 +6,5 @@ DuplicateLetter ← {⊑ 𝕨 /˜ 𝕨 ∊ 𝕩}´
 SplitAt ← {(𝕨⊸↑⋈𝕨⊸↓) 𝕩}
 SplitAtHalf ← HalfLength⊸SplitAt
 
-+´ Priority ∘ DuplicateLetter ∘ SplitAtHalf¨ in
+•Show +´ Priority ∘ DuplicateLetter ∘ SplitAtHalf¨ in
++´ ⋈⁼∘Priority∘⍷¨ (∊/⊣)¨˝˘ ∘‿3 ⥊ in
