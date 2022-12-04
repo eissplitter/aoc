@@ -10,5 +10,5 @@ in ← ∘‿1 ⥊ ⟨
 Overlaps ← { ⊑𝕨 ≤ 1⊑𝕩 ∧ 1⊑𝕨 ≥ ⊑𝕩 }
 Contains ← { ⊑𝕨 ≤ ⊑𝕩 ∧ 1⊑𝕨 ≥ 1⊑𝕩 }
 
-•Show ⋈⁼+˝ (Contains ∨ Contains˜)´ ¨ in
-⋈⁼+˝ Overlaps´ ¨ in
+•Show +´ (Contains ∨ Contains˜)´ ¨ in
++´ Overlaps´ ¨ in
