@@ -7,7 +7,7 @@ ApplyMovement ← {
 
  movedCrates ← ⌽ (-moveCount)↑ fromIndex⊸⊑ 𝕩
 
- stackWithCratesRemoved ← ≠⊸{(𝕨-moveCount)↑𝕩}⌾(fromIndex⊸⊑) 𝕩
+ stackWithCratesRemoved ← (-moveCount)⊸↓⌾(fromIndex⊸⊑) 𝕩
  ∾⟜movedCrates⌾(toIndex⊸⊑) stackWithCratesRemoved
 }
 
