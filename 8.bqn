@@ -7,9 +7,8 @@ in ← ⟨
 ⟩
 p ← -⟜'0'¨ > in
 
-LeftAndRight ← {(𝕨↑𝕩) ⋈ (𝕨+1)↓𝕩}
-ProcessLineElement ← { ∨´ ∧´¨ (𝕨⊑𝕩)>¨ 𝕨 LeftAndRight 𝕩 }
+ProcessLineElement ← {l←𝕨↑𝕩, r←(𝕨+1)↓𝕩, value←𝕨⊑𝕩, l ∨○{∧´𝕩<value} r}
 ProcessLine ← {ProcessLineElement⟜𝕩¨ (↕≠𝕩)}
-Process ← ProcessLine˘ ∨ ProcessLine˘⌾⍉
+Process ← (ProcessLine˘ ∨ ProcessLine˘⌾⍉)
 
 +´⥊ Process p
