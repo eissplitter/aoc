@@ -8,30 +8,28 @@ in ← [
 ]
 
 UpdateMonkey ← {
-monkeyIndex𝕊newMonkey:
- in ↩ newMonkey⌾(monkeyIndex⊸⊏) in
+monkeyIndex‿newMonkey 𝕊 state:
+ newMonkey⌾(monkeyIndex⊸⊏) state
 }
 
 Throw ← {
-worryLevel𝕊monkeyIndex:
- targetMonkey ← monkeyIndex⊏in
+monkeyIndex‿worryLevel 𝕊 state:
+ targetMonkey ← monkeyIndex⊏state
  newTargetMonkey ← ∾⟜worryLevel⌾(0⊸⊑) targetMonkey
- monkeyIndex UpdateMonkey newTargetMonkey
+ monkeyIndex‿newTargetMonkey UpdateMonkey state
 }
 
 DoTurn ← {
-𝕊monkeyIndex:
- sourceMonkey ← monkeyIndex⊏in
+monkeyIndex 𝕊 state:
+ sourceMonkey ← monkeyIndex⊏state
  worryLevels‿operation‿test‿counter ← sourceMonkey
  newWorryLevels ← ⌊ ÷⟜3 Operation¨ worryLevels
- Throw⟜Test¨ newWorryLevels
+ newState ← state {⟨Test 𝕨, 𝕨⟩ Throw 𝕩}´ ⌽newWorryLevels
  newSourceMonkey ← ⟨⟩⌾(0⊸⊑) sourceMonkey
  newSourceMonkey ↩ (counter+≠worryLevels)⌾(3⊸⊑) newSourceMonkey
- monkeyIndex UpdateMonkey newSourceMonkey
+ monkeyIndex‿newSourceMonkey UpdateMonkey newState
 }
 
-DoRound ← {𝕊: DoTurn¨ ↕≠in ⋄ @}
+DoRound ← {𝕩 DoTurn´ ⌽(↕≠in)}
 
-DoRound⍟20 @
-
-×´ 2↑ ∨ 3⊏⍉in
+×´ 2↑ ∨ 3⊏ ⍉ DoRound⍟20 in
